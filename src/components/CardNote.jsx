@@ -1,7 +1,7 @@
 import { SquarePen, Trash } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-const CardNote = ({ id, title, description, date }) => {
+const CardNote = ({ id, title, description, date, onDelete }) => {
   const navigate = useNavigate();
 
   return (
@@ -14,11 +14,16 @@ const CardNote = ({ id, title, description, date }) => {
         <div className="flex justify-between items-center mt-6">
           <time dateTime={date}>{date}</time>
           <div className="flex gap-4">
+            {/* Editar */}
             <SquarePen
               className="text-white cursor-pointer"
               onClick={() => navigate(`/editNote/${id}`)}
             />
-            <Trash className="text-red-400 cursor-pointer" />
+            {/* Eliminar */}
+            <Trash
+              className="text-red-400 cursor-pointer"
+              onClick={() => onDelete(id)}
+            />
           </div>
         </div>
       </div>
@@ -27,4 +32,5 @@ const CardNote = ({ id, title, description, date }) => {
 };
 
 export default CardNote;
+
 
