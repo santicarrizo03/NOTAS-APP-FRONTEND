@@ -14,7 +14,7 @@ function App() {
           element={<CreateNotePage></CreateNotePage>}
         ></Route>
         <Route
-          path="/edit/:id"
+          path="/editNote/:id"
           element={<EditNotePage></EditNotePage>}
         ></Route>
       </Routes>
